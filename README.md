@@ -19,4 +19,8 @@ Example of payload :
 
 - start C:\users\%username%\Desktop\file.cmd
 
+### How to use
+First of all, start the server (server.jar or server.java)
+
+After starting the server, start the client which will connect automatically
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
