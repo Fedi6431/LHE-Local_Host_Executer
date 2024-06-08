@@ -35,7 +35,10 @@ server.jar : out/artifacts/Server_jar/Server.jar
 client.jar : out/artifacts/Client_jar/Client.jar
 
 #### JAVA Files
-server.java :
+server.java : src/server.java
 
-client.java :
+client.java : src/client.java
+
+#### CLASS Files
+
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
