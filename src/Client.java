@@ -29,7 +29,7 @@ public class Client {
             // loop until "exit" is written
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
-                System.out.print("Made by Fedi6431\n"clientIP + " to " + serverIP + "$-");
+                System.out.print("Made by Fedi6431\n" + clientIP + " to " + serverIP + "$-");
                 line = input.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
