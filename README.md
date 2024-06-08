@@ -11,9 +11,9 @@ But the client can write payload in the console that are executed in the server 
 
 Example of payload :
 
-echo Hello world > C:\users\%username\Desktop\Hello.txt 
+- echo Hello world > C:\users\%username\Desktop\Hello.txt 
 
-echo @echo off > > C:\users\%username%\Desktop\file.cmd 
+- echo @echo off > > C:\users\%username%\Desktop\file.cmd 
 
 echo start >> > C:\users\%username%\Desktop\file.cmd    
 
