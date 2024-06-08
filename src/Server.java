@@ -11,6 +11,7 @@ public class Server {
         try {
             // create a server socket
             server = new ServerSocket(port);
+            System.out.println("Made by Fedi6431");
             System.out.println("Server started");
             // establish a connection with the client
             socket = server.accept();
@@ -34,6 +35,7 @@ public class Server {
                 Process cmd_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c " + string_cod});
             }
             // close the connection
+            System.out.println("Made by Fedi6431");
             socket.close();
             input.close();
         }
