@@ -23,4 +23,5 @@ Example of payload :
 First of all, start the server (server.jar or server.java)
 
 After starting the server, start the client which will connect automatically
+And.. ...you have a Local Host Executer
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
