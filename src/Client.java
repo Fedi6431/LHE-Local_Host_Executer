@@ -9,6 +9,7 @@ public class Client {
     public Client(String address, int port) {
         try {
             // establish a connection with the server
+            System.out.println("Made by Fedi6431");
             System.out.println("Client started");
             socket = new Socket(address, port);
             System.out.println("Client connected");
@@ -28,7 +29,7 @@ public class Client {
             // loop until "exit" is written
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
-                System.out.print(clientIP + " to " + serverIP + "$-");
+                System.out.print("Made by Fedi6431\n"clientIP + " to " + serverIP + "$-");
                 line = input.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
