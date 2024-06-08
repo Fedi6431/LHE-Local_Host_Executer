@@ -28,5 +28,14 @@ Now you have a Local Host Executer made by Fedi6431
 
 ### Tip
 If you don't know where file are located:
-server.jar : 
+
+#### JAR Files
+server.jar : out/artifacts/Server_jar/Server.jar
+
+client.jar : out/artifacts/Client_jar/Client.jar
+
+#### JAVA Files
+server.java :
+
+client.java :
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
