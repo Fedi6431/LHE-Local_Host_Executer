@@ -15,10 +15,8 @@ Example of payload :
 
 - echo @echo off > > C:\users\%username%\Desktop\file.cmd 
 
-echo start >> > C:\users\%username%\Desktop\file.cmd    
+- echo start >> > C:\users\%username%\Desktop\file.cmd    
 
-start C:\users\%username%\Desktop\file.cmd             
-
-Or code injection in computer files
-
+- start C:\users\%username%\Desktop\file.cmd
+- 
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
