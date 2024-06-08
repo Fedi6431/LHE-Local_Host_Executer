@@ -18,5 +18,5 @@ Example of payload :
 - echo start >> > C:\users\%username%\Desktop\file.cmd    
 
 - start C:\users\%username%\Desktop\file.cmd
-- 
+
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
