@@ -26,4 +26,7 @@ After starting the server, start the client which will connect automatically
 
 Now you have a Local Host Executer made by Fedi6431
 
+### Tip
+If you don't know where file are located:
+server.jar : 
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
