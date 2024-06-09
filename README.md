@@ -53,3 +53,4 @@ server.jar : out/artifacts/Server_jar/Server.jar
 client.jar : out/artifacts/Client_jar/Client.jar
 
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
+### ⚠ I DO NOT TAKE RESPONSIBILITY FOR THE USE OF THE PROGRAM BY OTHERS ⚠
