@@ -3,7 +3,8 @@
 username=$USER
 
 sudo apt update
-sudo apt full-upgrade
+sudo apt upgrade
+#sudo apt full-upgrade
 sudo apt autoremove
 
 cd /home/$username/Desktop/
