@@ -11,3 +11,5 @@ set output=C:\Users\%username%\Desktop\jdk-22_windows-x64_bin.exe
 powershell.exe -ExecutionPolicy Bypass -File SDK-INSTALLER.ps1
 
 del SDK-INSTALLER.ps1
+
+start C:\Users\%username%\Desktop\jdk-22_windows-x64_bin.exe
