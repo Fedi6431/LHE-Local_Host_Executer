@@ -34,7 +34,7 @@ After starting the server, start the client which will connect automatically
 
 Now you have a Local Host Executer made by Fedi6431
 
-### LHE FILE Path
+### FILE Path
 
 #### JAVA Files
 server.java : src/server.java
