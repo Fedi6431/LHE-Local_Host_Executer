@@ -1,14 +1,13 @@
 #!/bin/bash
 
 username=$USER
-url="https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.deb"
-output="/home/$username/Desktop/jdk-22_linux-x64_bin.deb"
 
-wget "$url" -O "$output"
+sudo apt update
+sudo apt full-upgrade 
+sudo apt autoremove
 
 cd /home/$username/Desktop/
-sudo dpkg -i jdk-22_linux-x64_bin.deb
+sudo apt install default-jdk
+java -version
 
-chmod +x jdk-22_linux-x64_bin.deb
-sudo ./jdk-22_linux-x64_bin.deb
-
+echo Now you can use LHE-Local_Host_Executer made by Fedi6431
