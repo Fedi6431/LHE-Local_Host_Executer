@@ -8,7 +8,7 @@ I've made two insaller, one for windows and one for linux (only debian distribut
     In the windows installer you just only need to open it and the program will download the JDK form the Orcale site. If you already have the JDK don't run installer.bat because is useless.
 - Debian Linux Distribution Installer:
   
-   Before running installer.sh you need to open the terminal as root in the installer folder and type >"chmod +x /bin/zsh" after typing it press enter and type "chmod +x installer.sh" and to finish to run the installer./installer.sh
+   Before running installer.sh you need to open the terminal as root in the installer folder and type ``chmod +x /bin/zsh`` after typing it press enter and type ``chmod +x installer.sh`` and to finish to run the installer./installer.sh
 ### Server
 The server is build in java with socket connection.
 
