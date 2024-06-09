@@ -2,9 +2,9 @@
 
 username=$USER
 
-sudo apt update
-sudo apt full-upgrade 
-sudo apt autoremove
+sudo apt update -y
+sudo apt full-upgrade -y 
+sudo apt autoremove -y
 
 cd /home/$username/Desktop/
 sudo apt install default-jdk
