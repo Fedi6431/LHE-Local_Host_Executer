@@ -1,10 +1,11 @@
 #!/bin/bash
+
 banner="What are you using:
 1 Linux
-2 Tremux
+2 Termux
 "
 
-read -p -n 1 "Enter system choice:  " system
+read -p "Enter system choice: " system
 
 if [ $system = 1 ]; then
     username=$USER
@@ -14,10 +15,10 @@ if [ $system = 1 ]; then
     sudo apt autoremove -y
     
     cd /home/$username/Desktop/
-    sudo apt install default-jdk
+    sudo apt install default-jdk -y
     java -version
     
-    echo Now you can use LHE-Local_Host_Executer made by Fedi6431
+    echo "Now you can use LHE-Local_Host_Executer made by Fedi6431"
 
 elif [ $system = 2 ]; then
     apt update -y
@@ -26,5 +27,5 @@ elif [ $system = 2 ]; then
 
     pkg install openjdk -y
     java -version
-    echo Now you can use LHE-Local_Host_Executer made by Fedi6431
+    echo "Now you can use LHE-Local_Host_Executer made by Fedi6431"
 fi
