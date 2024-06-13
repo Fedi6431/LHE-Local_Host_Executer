@@ -1,8 +1,9 @@
 # LHE-Local_Host_Executer
 [![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
-## User guide
-### Installer
+# User guide
+## Installer
+### Windows
 I've made two insaller, one for windows and one for linux (only debian distribution and termux)
 - Windows installer:
   
