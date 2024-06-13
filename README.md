@@ -8,7 +8,8 @@ I DON'T ASSUME RESPONSIBILITY FOR THE UNLAWFUL USE OF THIS PROGRAM
 In the Windows installer, simply open it and the program will download the JDK from the Orcale site.
 
 ### Linux (Debian distribution and Tremux)
-Before running `installer.sh` you need to open the terminal as root in the installer folder and type `chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
+Before running `installer.sh` you need to open the terminal as root in the installer folder and type 
+`chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
 
 After running it you can select the "system" that you're using.
 
