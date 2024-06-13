@@ -5,6 +5,8 @@ banner="What are you using:
 2 Termux
 "
 
+echo $banner
+
 read -p "Enter system choice: " system
 
 if [ $system = 1 ]; then
