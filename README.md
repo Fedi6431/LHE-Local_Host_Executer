@@ -22,13 +22,13 @@ But the client can write payload in the console that are executed in the server 
 
 Example of windows payload :
 
-- echo Hello world > C:\users\%username\Desktop\Hello.txt 
+- `echo Hello world > C:\users\%username\Desktop\Hello.txt `
 
-- echo @echo off > C:\users\%username%\Desktop\file.cmd 
+- `echo @echo off > C:\users\%username%\Desktop\file.cmd `
 
-- echo start >> C:\users\%username%\Desktop\file.cmd    
+- `echo start >> C:\users\%username%\Desktop\file.cmd`  
 
-- start C:\users\%username%\Desktop\file.cmd
+- `start C:\users\%username%\Desktop\file.cmd`
 
 ### How to use
 First of all, start the server (server.jar or server.java)
