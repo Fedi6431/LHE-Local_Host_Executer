@@ -1,3 +1,4 @@
+//This software is protected by Fedi6431©️ copyrights 
 import java.io.*;
 import java.net.*;
 
@@ -29,12 +30,13 @@ public class Client {
             // loop until "exit" is written
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
-                System.out.print("Made by Fedi6431\n" + clientIP + " to " + serverIP + "$-");
+                System.out.print(clientIP + " to " + serverIP + "$-");
                 line = input.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
             }
             // close the connection
+            System.out.println("Made by Fedi6431");
             input.close();
             output.close();
             socket.close();
