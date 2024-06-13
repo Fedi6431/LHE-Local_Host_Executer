@@ -4,13 +4,15 @@
 # User guide
 ## Installer
 ### Windows
-I've made two insaller, one for windows and one for linux (only debian distribution and termux)
-- Windows installer:
-  
-    In the windows installer you just only need to open it and the program will download the JDK form the Orcale site. If you already have the JDK don't run installer.bat because is useless.
-- Debian Linux Distribution Installer:
-  
-   Before running installer.sh you need to open the terminal as root in the installer folder and type ```chmod +x /bin/zsh``` after typing it press enter and type ``chmod +x installer.sh`` and run the installer using this command ``./installer.sh``
+In the Windows installer, simply open it and the program will download the JDK from the Orcale site.
+
+### Linux (Debian distribution and Tremux)
+Before running `installer.sh` you need to open the terminal as root in the installer folder and type `chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
+
+After running it you can select the "system" that you're using.
+
+## Guide
+
 ### Server
 The server is build in java with socket connection.
 
