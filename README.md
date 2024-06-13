@@ -1,6 +1,5 @@
 # LHE-Local_Host_Executer
-[![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
-## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
+# ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 # User guide
 ## Installer
 ### Windows
