@@ -40,19 +40,19 @@ Now you have a Local Host Executer made by Fedi6431
 ### FILE Path
 
 #### JAVA Files
-server.java : src/server.java
+server.java : `src/server.java`
 
-client.java : src/client.java
+client.java : `src/client.java`
 
 #### CLASS Files
-server.class : out/production/Local_Host_Executer/server.class
+server.class : `out/production/Local_Host_Executer/server.class`
 
-client.class : out/production/Local_Host_Executer/client.class
+client.class : `out/production/Local_Host_Executer/client.class`
 
 #### JAR Files
-server.jar : out/artifacts/Server_jar/Server.jar
+server.jar : `out/artifacts/Server_jar/Server.jar`
 
-client.jar : out/artifacts/Client_jar/Client.jar
+client.jar :` out/artifacts/Client_jar/Client.jar`
 
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 ### ⚠ I DO NOT TAKE RESPONSIBILITY FOR THE USE OF THE PROGRAM BY OTHERS ⚠
