@@ -1,17 +1,6 @@
 # LHE-Local_Host_Executer
 # ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 # User guide
-## Installer
-### Windows
-In the Windows installer, simply open it and the program will download the JDK from the Orcale site.
-
-### Linux (Debian distribution and Tremux)
-Before running `installer.sh` you need to open the terminal as root in the installer folder and type `chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
-
-After running it you can select the "system" that you're using.
-
-## Guide
-
 ### Server
 The server is build in java with socket connection.
 
@@ -30,7 +19,17 @@ Example of windows payload :
 
 - `start C:\users\%username%\Desktop\file.cmd`
 
-### How to use
+
+## Installer
+### Windows
+In the Windows installer, simply open it and the program will download the JDK from the Orcale site.
+
+### Linux (Debian distribution and Tremux)
+Before running `installer.sh` you need to open the terminal as root in the installer folder and type `chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
+
+After running it you can select the "system" that you're using.
+
+## Guide
 First of all, start the server (server.jar or server.java)
 
 After starting the server, start the client which will connect automatically
