@@ -27,3 +27,4 @@ elif [ $system = 2 ]; then
     pkg install openjdk -y
     java -version
     echo Now you can use LHE-Local_Host_Executer made by Fedi6431
+fi
