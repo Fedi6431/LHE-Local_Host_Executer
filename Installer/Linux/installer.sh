@@ -100,6 +100,7 @@ elif [[ $usr_ch = 2 ]]; then
     read -p "Press Enter to continue"
     clear
   done
+  
 EOF
   # clear apt outputs
   clear
