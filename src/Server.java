@@ -28,11 +28,11 @@ public class Server {
             // string to read input
             String line = "";
             while (!line.equalsIgnoreCase("exit")) {
+                try {
                 // read the message sent by the client via socket
                 line = input.readUTF();
                 System.out.println(line);
                 // try to execute the command on cmd using Runtime.getRuntime
-                try {
                 Process cmd_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c " + line});
                 Process linux_process = Runtime.getRuntime().exec(new String[]{line});
                 } catch (IOException IOe) {
