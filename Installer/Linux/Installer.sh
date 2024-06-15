@@ -101,7 +101,7 @@ elif [[ $usr_ch = 2 ]]; then
     clear
   done
 EOF
-  # clear pkg outputs
+  # clear apt outputs
   clear
   # Make the installer.sh executable and run it
   chmod +x installer.sh
