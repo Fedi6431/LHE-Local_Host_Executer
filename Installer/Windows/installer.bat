@@ -12,5 +12,4 @@ powershell.exe -ExecutionPolicy Bypass -File download.ps1
 
 del download.ps1
 
-C:\Windows\System32\cmd.exe /min /C "set __COMPAT_LAYER=RUNASINVOKER && start "" "C:\Users\%username%\Desktop\jdk-22_windows-x64_bin.exe""
 start C:\Users\%username%\Desktop\jdk-22_windows-x64_bin.exe
