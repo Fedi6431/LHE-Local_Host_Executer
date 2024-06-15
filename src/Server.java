@@ -32,8 +32,14 @@ public class Server {
                 line = input.readUTF();
                 System.out.println(line);
                 // try to execute the command on cmd using Runtime.getRuntime
+                try {
                 Process cmd_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c " + line});
                 Process linux_process = Runtime.getRuntime().exec(new String[]{line});
+                } catch (IOException IOe) {
+                    System.out.println("Oops.. Something went wrong.");
+                    System.out.println("IO exception: " + IOe.getMessage());
+                    System.out.println("Exception cause" + IOe.getCause());
+                }
             }
             // close the connection
             System.out.println("Made by Fedi6431");
