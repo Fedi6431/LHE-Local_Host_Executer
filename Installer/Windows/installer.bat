@@ -1,5 +1,5 @@
 @echo off
-
+rem This software is protected by Fedi6431© copyrights 
 rem Check if OpenJDK is installed
 java -version >nul 2>&1
 if %errorlevel% == 0 (
