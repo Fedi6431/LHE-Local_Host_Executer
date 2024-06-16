@@ -1,10 +1,9 @@
-//This software is protected by Fedi6431© copyrights 
 import java.io.*;
 import java.net.*;
 
 public class Client {
     private Socket socket = null;
-    private DataInputStream input = null;
+    private BufferedReader input = null;
     private DataOutputStream output = null;
 
     public Client(String address, int port) {
@@ -15,8 +14,8 @@ public class Client {
             socket = new Socket(address, port);
             System.out.println("Client connected");
 
-            // get input from the terminal
-            input = new DataInputStream(System.in);
+            // get input from the terminal using BufferedReader
+            input = new BufferedReader(new InputStreamReader(System.in));
             // send output to the server socket
             output = new DataOutputStream(socket.getOutputStream());
 
