@@ -7,18 +7,14 @@ echo "$banner"
 read -p "--> " usr_ch
 if [[ $usr_ch = 1 ]]; then
   username=$USER
-  # Update the system and remove old packages
   sudo apt update -y
   sudo apt full-upgrade -y 
   sudo apt autoremove -y
   # Install OpenJDK and git
   sudo apt install openjdk -y
   sudo apt install git
-  # Check the Java version of OpenJDK
   java -version
-  # change the directory to the main dir
   cd /home/$username/desktop
-  # Code that will go in the installer.sh
   cat > installer.sh <<EOF
   while :
   do
@@ -45,25 +41,18 @@ if [[ $usr_ch = 1 ]]; then
     clear
   done
 EOF
-  # clear apt outputs
   clear
-  # Make the installer.sh executable and run it
   chmod +x installer.sh
   ./installer.sh
 elif [[ $usr_ch = 2 ]]; then
-  # Update the system and remove old packages
   pkg update -y
   apt update -y
   apt full-upgrade -y
   apt autoremove -y
-  # Install OpenJDK and git
   pkg install openjdk
   pkg install git
-  # Check the Java version of OpenJDK
   java -version
-  # change the directory to the main dir
   cd ~
-  # Code that will go in the installer.sh
   cat > installer.sh <<EOF
   while :
   do
@@ -90,9 +79,7 @@ elif [[ $usr_ch = 2 ]]; then
     clear
   done
 EOF
-  # clear apt outputs
   clear
-  # Make the installer.sh executable and run it
   chmod +x installer.sh
   ./installer.sh
 fi
