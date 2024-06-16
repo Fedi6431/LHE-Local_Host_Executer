@@ -4,6 +4,7 @@
 # User guide
 ## Installer
 ### Windows
+! To avoid bugs, move the installer out of the LHE folder !
 After running `installer.bat` it will check if you have openJDK and git, i you don't have it, the program will install and run them.
 After installing the openJDK and the git, the program open the option menu.
 
