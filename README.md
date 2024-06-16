@@ -5,7 +5,8 @@ I DON'T ASSUME RESPONSIBILITY FOR THE UNLAWFUL USE OF THIS PROGRAM
 # User guide
 ## Installer
 ### Windows
-In the Windows installer, simply open it and the program will download the JDK from the Orcale site.
+After running `installer.bat` it will check if you have openJDK and git, i you don't have it, the program will install and run them.
+After installing the openJDK and the git, the program open the option menu.
 
 ### Linux (Debian distribution and Tremux)
 Before running `installer.sh` you need to open the terminal as root in the installer folder and type 
