@@ -8,7 +8,7 @@ read -p "--> " usr_ch
 if [[ $usr_ch = 1 ]]; then
   username=$USER
   sudo apt update -y
-  sudo apt full-upgrade -y 
+  sudo apt upgrade -y 
   sudo apt autoremove -y
   # Install OpenJDK and git
   sudo apt install openjdk -y
@@ -46,8 +46,7 @@ EOF
   ./installer.sh
 elif [[ $usr_ch = 2 ]]; then
   pkg update -y
-  apt update -y
-  apt full-upgrade -y
+  apt upgrade -y
   apt autoremove -y
   pkg install openjdk
   pkg install git
