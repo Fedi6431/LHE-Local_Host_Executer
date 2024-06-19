@@ -15,7 +15,7 @@ if [[ $usr_ch = 1 ]]; then
   sudo apt install git
   java -version
   cd /home/$username/desktop
-  cat > installer.sh <<EOF
+  cd /home/$username/desktop && cat > installer.sh <<EOF
   while :
   do
     echo -e "Select option\n1) Install\n2) Update\n3) Remove\n4) Close"
