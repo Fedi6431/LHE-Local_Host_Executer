@@ -7,12 +7,17 @@ public class Server {
     private ServerSocket server = null;
     private DataInputStream input =  null;
 
-    public Server(int port) {
+    public Server(String IP, int port) {
         try {
             // create a server socket
-            server = new ServerSocket(port);
+
+            InetAddress localIpAddress = InetAddress.getLocalHost();
             System.out.println("Made by Fedi6431");
+            server = new ServerSocket();
             System.out.println("Server started");
+            server.bind(new InetSocketAddress(localIpAddress, 5000));
+            System.out.println("Running on port 5000, IP: " + localIpAddress);
+
 
 
             // establish a connection with the client
@@ -81,7 +86,12 @@ public class Server {
     }
 
     public static void main(String args[]) {
-        InetAddress localIpAddress = InetAddress.getLocalHost();
-        server = new ServerSocket(5000, localIpAddress);
+        try {
+            InetAddress localIpAddress = InetAddress.getLocalHost();
+            String IP = localIpAddress.getHostAddress();
+            Server server = new Server(IP,5000);
+        } catch (UnknownHostException e) {
+            System.out.println("Error getting local host address: " + e.getMessage());
+        }
     }
 }
