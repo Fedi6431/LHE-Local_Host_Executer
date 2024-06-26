@@ -81,6 +81,7 @@ public class Server {
     }
 
     public static void main(String args[]) {
-        Server server = new Server(5000);
+        InetAddress localIpAddress = InetAddress.getLocalHost();
+        server = new ServerSocket(5000, localIpAddress);
     }
 }
