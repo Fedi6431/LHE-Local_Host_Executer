@@ -27,7 +27,8 @@ After entering the server's IP address, the client will ask you for the server's
 
 And finally, after configuring the client, you can execute the payloads remotely (in the same network)
 
-Example of windows payload :
+
+Windows payload :
 
 - `echo Hello world > C:\users\%username\Desktop\Hello.txt `
 
