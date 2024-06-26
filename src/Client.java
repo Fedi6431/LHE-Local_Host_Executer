@@ -18,7 +18,8 @@ public class Client {
 
 
             // get input from the terminal
-            input = new DataInputStream(System.in);
+           BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
             // send output to the server socket
             output = new DataOutputStream(socket.getOutputStream());
 
@@ -56,7 +57,7 @@ public class Client {
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
                 System.out.print(clientIP + " to " + serverIP + "$-");
-                line = input.readLine();
+                line = reader.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
             }
