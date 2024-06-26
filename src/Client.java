@@ -11,15 +11,13 @@ public class Client {
     public Client(String address, int port) {
         try {
             // establish a connection with the server
-            System.out.println("Made by Fedi6431");
-            System.out.println("Client started");
+            System.out.println("\nClient started");
             socket = new Socket(address, port);
             System.out.println("Client connected");
 
 
             // get input from the terminal
-           BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+            input = new DataInputStream(System.in);
             // send output to the server socket
             output = new DataOutputStream(socket.getOutputStream());
 
@@ -57,7 +55,7 @@ public class Client {
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
                 System.out.print(clientIP + " to " + serverIP + "$-");
-                line = reader.readLine();
+                line = input.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
             }
@@ -78,6 +76,10 @@ public class Client {
     }
 
     public static void main(String args[]) {
-        Client client = new Client("127.0.0.1", 5000);
+        System.out.println("Made by Fedi6431");
+        System.out.println("Type server IPv4");
+        Scanner scanner = new Scanner(System.in);
+        String address = scanner.nextLine();
+        Client client = new Client(address, 5000);
     }
 }
