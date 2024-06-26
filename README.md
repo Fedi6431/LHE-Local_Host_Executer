@@ -16,12 +16,16 @@ Before running `installer.sh` you need to open the terminal as root in the insta
 After running it you can select the "system" that you're using.
 
 ### Server
-The server is build in java with socket connection.
+The server is built in java with a socket connection, it will use port 5000 and its own IPv4 as its IP address (Ex. 192.168.1.255).
 
 ### Client
-The client is build in java with socket connection, like the server.
+The client is built in java with a socket connection like the server.
 
-But the client can write payload in the console that are executed in the server computer using the process `Runtime.getRuntime()`
+As soon as the client starts it will ask for the IP address of the server (Ex. 192.168.1.255) you can go to see the IP address using the `ipconfig` command on Windows and on Linux using `ifconfig` or if you do not have physical access to the server, being in the same network you can use a network analyzer capable of seeing all the devices connected to the network.
+
+After entering the server's IP address, the client will ask you for the server's operating system.
+
+And finally, after configuring the client, you can execute the payloads remotely (in the same network)
 
 Example of windows payload :
 
