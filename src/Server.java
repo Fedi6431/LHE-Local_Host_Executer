@@ -7,7 +7,7 @@ public class Server {
     private ServerSocket server = null;
     private DataInputStream input =  null;
 
-    public Server(String IP, int port) {
+    public Server(String address, int port) {
         try {
             // create a server socket
 
@@ -16,7 +16,7 @@ public class Server {
             server = new ServerSocket();
             System.out.println("Server started");
             server.bind(new InetSocketAddress(localIpAddress, 5000));
-            System.out.println("Running on port 5000, IP: " + localIpAddress);
+            System.out.println("Running on port 5000, address: " + localIpAddress);
 
 
 
@@ -88,8 +88,8 @@ public class Server {
     public static void main(String args[]) {
         try {
             InetAddress localIpAddress = InetAddress.getLocalHost();
-            String IP = localIpAddress.getHostAddress();
-            Server server = new Server(IP,5000);
+            String address = localIpAddress.getHostAddress();
+            Server server = new Server(address,5000);
         } catch (UnknownHostException e) {
             System.out.println("Error getting local host address: " + e.getMessage());
         }
