@@ -1,41 +1,32 @@
 @echo off
-rem This software is protected by Fedi6431© copyrights 
-rem Check if OpenJDK is installed
+rem Check if Java is installed
+:InstallJava
 java -version >nul 2>&1
-if %errorlevel% == 0 (
-    echo OpenJDK is already installed
+if %errorlevel% equ 0 (
+    echo Java is already installed.
+    java -version
 ) else (
-    rem Install OpenJDK
-    set "url=https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe"
-    set "output=C:\Users\%username%\Desktop\jdk-22_windows-x64_bin.exe"
-    (
-        echo $url = '%url%'
-        echo $output = '%output%'
-        echo Invoke-WebRequest -Uri $url -OutFile $output
-    ) > jdk_installer.ps1
-    powershell.exe -ExecutionPolicy Bypass -File jdk_installer.ps1
-    del jdk_installer.ps1
-    start "" "%output%"
-    set /p WAIT="If OpenJDK is installed, press enter"
+    echo Java is not installed. Installing OpenJDK...
+	powershell Invoke-WebRequest https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe -OutFile c:\users\%username%\Desktop\openjdk-installer.exe
+    cd c:\users\%username%\Desktop 
+	start /wait openjdk-installer.exe
+    echo OpenJDK installation completed.
+    java -version
+	cls
+	del /f c:\users\%username%\Desktop\openjdk-installer.exe
 )
-
-rem Check if Git is installed
+:InstallGit
 git --version >nul 2>&1
-if %errorlevel% == 0 (
+if %errorlevel% equ 0 (
     echo Git is already installed
 ) else (
-    rem Install Git
-    set "url=https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe"
-    set "output=C:\Users\%username%\Desktop\Git-2.45.2-64-bit.exe"
-    (
-        echo $url = '%url%'
-        echo $output = '%output%'
-        echo Invoke-WebRequest -Uri $url -OutFile $output
-    ) > git_installer.ps1
-    powershell.exe -ExecutionPolicy Bypass -File git_installer.ps1
-    del git_installer.ps1
-    start "" "%output%"
-    set /p WAIT="If Git is installed, press enter"
+    echo Java is not installed. Installing OpenJDK...
+	powershell Invoke-WebRequest https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe -OutFile c:\users\%username%\Desktop\git-installer.exe
+	cd c:\users\%username%\Desktop
+	start /wait git-installer.exe 
+	git --version
+	cls
+	del /f c:\users\%username%\Desktop\git-installer.exe
 )
 
 :installer
