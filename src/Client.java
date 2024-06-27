@@ -81,6 +81,6 @@ public class Client {
         System.out.println("Type server IPv4");
         Scanner scanner = new Scanner(System.in);
         String address = scanner.nextLine();
-        Client client = new Client(address, 5000);
+        Client client = new Client(address, 65000);
     }
 }
