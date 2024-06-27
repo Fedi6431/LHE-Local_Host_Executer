@@ -15,8 +15,8 @@ public class Server {
             System.out.println("Made by Fedi6431");
             server = new ServerSocket();
             System.out.println("Server started");
-            server.bind(new InetSocketAddress(localIpAddress, 5000));
-            System.out.println("Running on port 5000, address: " + localIpAddress);
+            server.bind(new InetSocketAddress(localIpAddress, 65000));
+            System.out.println("Running on port " + port + ", address: " + localIpAddress);
 
 
 
@@ -89,7 +89,7 @@ public class Server {
         try {
             InetAddress localIpAddress = InetAddress.getLocalHost();
             String address = localIpAddress.getHostAddress();
-            Server server = new Server(address,5000);
+            Server server = new Server(address,65000);
         } catch (UnknownHostException e) {
             System.out.println("Error getting local host address: " + e.getMessage());
         }
