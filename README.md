@@ -1,8 +1,7 @@
 # ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 # LHE-Local_Host_Executer
 
-# User guide
-## Installer
+## Installer guide
 ### Windows
 `! To avoid bugs, move the installer out of the LHE folder !`
 
@@ -15,7 +14,7 @@ Before running `installer.sh` you need to open the terminal as root in the insta
 
 After running it you can select the "system" that you're using.
 
-## Guide
+## User guide
 ### Server
 The server is built in java with a socket connection, it will use port 65000 and its own IPv4 as its IP address (Ex. 192.168.1.255).
 
@@ -39,8 +38,8 @@ Windows payload :
 
 - `start C:\users\%username%\Desktop\file.cmd`
 
-### FILE Path
 
+### FILE Path
 #### JAVA Files
 server.java : `src/server.java`
 
