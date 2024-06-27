@@ -1,12 +1,6 @@
 # LHE-Local_Host_Executer
 
 # ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
-### ⚠ DISCLAMER I DON'T ASSUME RESPONSIBILITY FOR THE UNLAWFUL USE OF THIS PROGRAM ⚠ 
-
-
-### Badge ( They're just cool )
-[![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
-
 
 # User guide
 ## Installer
@@ -58,6 +52,10 @@ Now you have a Local Host Executer made by Fedi6431
 server.java : `src/server.java`
 
 client.java : `src/client.java`
+
+### Badge ( They're just cool )
+[![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
+
 
 ## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 ### ⚠ I DON'T ASSUME RESPONSIBILITY FOR THE UNLAWFUL USE OF THIS PROGRAM ⚠
