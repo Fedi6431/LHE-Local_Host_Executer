@@ -1,6 +1,6 @@
 # LHE-Local_Host_Executer
 
-# ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
+## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 
 # User guide
 ## Installer
