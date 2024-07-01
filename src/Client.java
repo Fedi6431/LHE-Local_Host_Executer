@@ -8,7 +8,7 @@ public class Client {
     private DataInputStream input = null;
     private DataOutputStream output = null;
 
-    public Client(String address, int port) {
+    private static void Client(String address, int port) {
         try {
             // establish a connection with the server
             System.out.println("\nClient started");
@@ -81,6 +81,6 @@ public class Client {
         System.out.println("Type server IPv4");
         Scanner scanner = new Scanner(System.in);
         String address = scanner.nextLine();
-        Client client = new Client(address, 65000);
+        Client(address, 65000);
     }
 }
