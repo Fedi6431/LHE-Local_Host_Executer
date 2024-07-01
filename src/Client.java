@@ -25,7 +25,7 @@ public class Client {
 
             // string to read input
             String line = "";
-            int user_system;
+            int userSystem;
             boolean linux;
 
 
@@ -40,12 +40,12 @@ public class Client {
             System.out.println("2 Windows\n");
             System.out.print("--> ");
             Scanner scanner = new Scanner(System.in);
-            user_system = scanner.nextInt();
+            userSystem = scanner.nextInt();
 
-            if (user_system == 1) {
+            if (userSystem == 1) {
                 linux = true;
                 output.writeUTF(String.valueOf(linux));
-            } else if (user_system == 2) {
+            } else if (userSystem == 2) {
                 linux = false;
                 output.writeUTF(String.valueOf(linux));
             } else {
