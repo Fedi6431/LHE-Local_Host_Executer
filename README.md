@@ -44,6 +44,10 @@ Windows payload :
 server.java : `src/server.java`
 
 client.java : `src/client.java`
+#### CLASS Files
+server.class : `out/production/LHE-Local_Host_Executer/Server.class`
+
+client.class : `out/production/LHE-Local_Host_Executer\Client.class`
 
 ### Badge ( They're just cool )
 [![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
