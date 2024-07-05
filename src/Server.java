@@ -1,19 +1,16 @@
 //This software is protected by Fedi6431© copyrights
+
 import java.net.*;
 import java.io.*;
 
 public class Server {
-    private Socket socket = null;
-    private ServerSocket server = null;
-    private DataInputStream input =  null;
-
-    public Server(String address, int port) {
+    public static void Initialize(String address, int port) {
         try {
             // create a server socket
 
             InetAddress localIpAddress = InetAddress.getLocalHost();
             System.out.println("Made by Fedi6431");
-            server = new ServerSocket();
+            ServerSocket server = new ServerSocket();
             System.out.println("Server started");
             server.bind(new InetSocketAddress(localIpAddress, 65000));
             System.out.println("Running on port " + port + ", address: " + localIpAddress);
@@ -21,12 +18,12 @@ public class Server {
 
 
             // establish a connection with the client
-            socket = server.accept();
+            Socket socket = server.accept();
             System.out.println("Client connected");
 
 
             // get input from the terminal
-            input = new DataInputStream(
+            DataInputStream input = new DataInputStream(
                     new BufferedInputStream(socket.getInputStream()));
 
 
@@ -89,7 +86,7 @@ public class Server {
         try {
             InetAddress localIpAddress = InetAddress.getLocalHost();
             String address = localIpAddress.getHostAddress();
-            Server server = new Server(address,65000);
+            Initialize(address,65000);
         } catch (UnknownHostException e) {
             System.out.println("Error getting local host address: " + e.getMessage());
         }
