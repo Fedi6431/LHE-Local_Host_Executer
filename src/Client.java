@@ -1,18 +1,15 @@
 //This software is protected by Fedi6431© copyrights
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
 public class Client {
-    private Socket socket = null;
-    private DataInputStream input = null;
-    private DataOutputStream output = null;
-
-    private Client(String address, int port) {
+    public static void Initialize(String address, int port) {
         try {
             // establish a connection with the server
             System.out.println("\nClient started");
-            socket = new Socket(address, port);
+            Socket socket = new Socket(address, port);
             System.out.println("Client connected");
 
 
@@ -20,12 +17,11 @@ public class Client {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             // send output to the server socket
-            output = new DataOutputStream(socket.getOutputStream());
+            DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
 
             // string to read input
             String line = "";
-            int userSystem;
             boolean linux;
 
 
@@ -40,7 +36,7 @@ public class Client {
             System.out.println("2 Windows\n");
             System.out.print("--> ");
             Scanner scanner = new Scanner(System.in);
-            userSystem = scanner.nextInt();
+            int userSystem = scanner.nextInt();
 
             if (userSystem == 1) {
                 linux = true;
@@ -61,18 +57,17 @@ public class Client {
                 output.writeUTF(line);
             }
             // close the connection
-            input.close();
             output.close();
             socket.close();
         }
         // handle any errors
         catch (IOException IOe) {
             System.out.println("IO exception: " + IOe.getMessage());
-            System.out.println("Exception cause" + IOe.getCause());
+            System.out.println("Exception cause: " + IOe.getCause());
         }
         catch (RuntimeException RTe) {
             System.out.println("Runtime exception: " + RTe.getMessage());
-            System.out.println("Exception cause" + RTe.getCause());
+            System.out.println("Exception cause: " + RTe.getCause());
         }
     }
 
@@ -81,6 +76,6 @@ public class Client {
         System.out.println("Type server IPv4");
         Scanner scanner = new Scanner(System.in);
         String address = scanner.nextLine();
-        new Client(address, 65000);
+        Initialize(address, 65000);
     }
 }
