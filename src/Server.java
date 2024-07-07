@@ -40,8 +40,8 @@ public class Server {
                         Process linux_process = Runtime.getRuntime().exec(new String[]{line});
                     } catch (IOException IOe) {
                         System.out.println("Oops.. Something went wrong.");
-                        System.out.println(STR."IO exception: \{IOe.getMessage()}");
-                        System.out.println(STR."Exception cause\{IOe.getCause()}");
+                        System.out.println("IO exception: " + IOe.getMessage());
+                        System.out.println("Exception cause " + IOe.getCause());
                     }
                 }
             } else {
@@ -52,11 +52,11 @@ public class Server {
                         System.out.println(line);
 
                         // try to execute the command on cmd using Runtime.getRuntime
-                        Process windows_process = Runtime.getRuntime().exec(new String[]{"cmd", STR."/c \{line}"});
+                        Process windows_process = Runtime.getRuntime().exec(new String[]{"cmd", "/c", line});
                     } catch (IOException IOe) {
                         System.out.println("Oops.. Something went wrong.");
-                        System.out.println(STR."IO exception: \{IOe.getMessage()}");
-                        System.out.println(STR."Exception cause\{IOe.getCause()}");
+                        System.out.println("IO exception: " + IOe.getMessage());
+                        System.out.println("Exception cause " + IOe.getCause());
                     }
                 }
             }
@@ -68,12 +68,12 @@ public class Server {
         }
         // handle any errors
         catch (IOException IOe) {
-            System.out.println(STR."IO exception: \{IOe.getMessage()}");
-            System.out.println(STR."Exception cause\{IOe.getCause()}");
+            System.out.println("IO exception: " +IOe.getMessage());
+            System.out.println("Exception cause " + IOe.getCause());
         }
         catch (RuntimeException RTe) {
-            System.out.println(STR."Runtime exception: \{RTe.getMessage()}");
-            System.out.println(STR."Exception cause\{RTe.getCause()}");
+            System.out.println("Runtime exception: " + RTe.getMessage());
+            System.out.println("Exception cause " + RTe.getCause());
         }
     }
 
