@@ -26,23 +26,7 @@ public class Server {
             String line = "";
 
             String os = System.getProperty("os.name");
-            if (os.equals("windows")) {
-            while (!line.equalsIgnoreCase("exit")) {
-                try {
-                    // read the message sent by the client via socket
-                    line = input.readUTF();
-                    System.out.println(line);
-
-                    // try to execute the command on terminal using Runtime.getRuntime
-                    Process linux_process = Runtime.getRuntime().exec(new String[]{line});
-                } catch (IOException IOe) {
-                    System.out.println("Oops.. Something went wrong.");
-                    System.out.println("IO exception: " + IOe.getMessage());
-                    System.out.println("Exception cause" + IOe.getCause());
-                    }
-                }
-
-         } else { 
+            if (os.equals("windows")) 
             while (!line.equalsIgnoreCase("exit")) {
                 try {
                     // read the message sent by the client via socket
@@ -57,6 +41,23 @@ public class Server {
                     System.out.println("Exception cause" + IOe.getCause());
                 }
             }
+
+
+         } else { 
+            while (!line.equalsIgnoreCase("exit")) {
+                try {
+                    // read the message sent by the client via socket
+                    line = input.readUTF();
+                    System.out.println(line);
+
+                    // try to execute the command on terminal using Runtime.getRuntime
+                    Process linux_process = Runtime.getRuntime().exec(new String[]{line});
+                } catch (IOException IOe) {
+                    System.out.println("Oops.. Something went wrong.");
+                    System.out.println("IO exception: " + IOe.getMessage());
+                    System.out.println("Exception cause" + IOe.getCause());
+                    }
+                }
         }
         // close the connection
         System.out.println("Made by Fedi6431");
