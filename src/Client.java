@@ -28,7 +28,7 @@ public class Client {
             // loop until "exit" is written
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
-                System.out.print(STR."\{clientIP} to \{serverIP}$-");
+                System.out.print(clientIP + " to " +serverIP + "$-");
                 line = reader.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
@@ -39,12 +39,12 @@ public class Client {
         }
         // handle any errors
         catch (IOException IOe) {
-            System.out.println(STR."IO exception: \{IOe.getMessage()}");
-            System.out.println(STR."Exception cause: \{IOe.getCause()}");
+            System.out.println("IO exception: IOe.getMessage()}");
+            System.out.println("Exception cause: IOe.getCause()}");
         }
         catch (RuntimeException RTe) {
-            System.out.println(STR."Runtime exception: \{RTe.getMessage()}");
-            System.out.println(STR."Exception cause: \{RTe.getCause()}");
+            System.out.println("Runtime exception: RTe.getMessage()}");
+            System.out.println("Exception cause: RTe.getCause()}");
         }
     }
 
