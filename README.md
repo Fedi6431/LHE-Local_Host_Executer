@@ -10,7 +10,8 @@ After installing the openJDK and the git, the program open the option menu.
 
 ### Linux (Debian distribution and Tremux)
 Before running `installer.sh` you need to open the terminal as root in the installer folder and type 
-`chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command `./installer.sh`.
+`chmod +x /bin/zsh` after typing it press enter and type `chmod +x installer.sh` and run the installer using this command 
+`./installer.sh`.
 
 After running it you can select the "system" that you're using.
 
