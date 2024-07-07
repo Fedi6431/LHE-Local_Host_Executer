@@ -8,10 +8,7 @@ public class Client {
     public static void Initialize(String address, int port) {
         try {
             // establish a connection with the server
-            System.out.println("\nClient started");
             Socket socket = new Socket(address, port);
-            System.out.println("Client connected");
-
 
             // get input from the terminal
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -19,39 +16,19 @@ public class Client {
             // send output to the server socket
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-
             // string to read input
             String line = "";
-            boolean linux;
-
 
             // IP of the server and the client
             String serverIP = socket.getLocalAddress().getHostAddress();
             String clientIP = Inet4Address.getLocalHost().getHostAddress();
 
-
-            // ask the system that use the server to write custom payloads
-            System.out.println("\nChoose the system that using the server");
-            System.out.println("1 Linux");
-            System.out.println("2 Windows\n");
-            System.out.print("--> ");
-            Scanner scanner = new Scanner(System.in);
-            int userSystem = scanner.nextInt();
-
-            if (userSystem == 1) {
-                linux = true;
-                output.writeUTF(String.valueOf(linux));
-            } else if (userSystem == 2) {
-                linux = false;
-                output.writeUTF(String.valueOf(linux));
-            } else {
-                System.out.println("Syntax error, select one of the options");
-            }
+            for(int i=0; i<100; i++) { System.out.println("\n"); }
 
             // loop until "exit" is written
             while (!line.equalsIgnoreCase("exit")) {
                 // get user input
-                System.out.print(clientIP + " to " + serverIP + "$-");
+                System.out.print(STR."\{clientIP} to \{serverIP}$-");
                 line = reader.readLine();
                 // send the received input to the server
                 output.writeUTF(line);
@@ -62,20 +39,22 @@ public class Client {
         }
         // handle any errors
         catch (IOException IOe) {
-            System.out.println("IO exception: " + IOe.getMessage());
-            System.out.println("Exception cause: " + IOe.getCause());
+            System.out.println(STR."IO exception: \{IOe.getMessage()}");
+            System.out.println(STR."Exception cause: \{IOe.getCause()}");
         }
         catch (RuntimeException RTe) {
-            System.out.println("Runtime exception: " + RTe.getMessage());
-            System.out.println("Exception cause: " + RTe.getCause());
+            System.out.println(STR."Runtime exception: \{RTe.getMessage()}");
+            System.out.println(STR."Exception cause: \{RTe.getCause()}");
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
+
         System.out.println("Made by Fedi6431");
         System.out.println("Type server IPv4");
         Scanner scanner = new Scanner(System.in);
         String address = scanner.nextLine();
+
         Initialize(address, 65000);
     }
 }
