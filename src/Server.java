@@ -14,7 +14,7 @@ public class Server {
             System.out.println("Server started");
 
             server.bind(new InetSocketAddress(localIpAddress, 65000));
-            System.out.println(STR."Running on port \{port}, address: \{localIpAddress}");
+            System.out.println("Running on port: " + port + " address: " + localIpAddress);
 
 
             // establish a connection with the client
@@ -83,7 +83,7 @@ public class Server {
             String address = localIpAddress.getHostAddress();
             Initialize(address,65000);
         } catch (UnknownHostException e) {
-            System.out.println(STR."Error getting local host address: \{e.getMessage()}");
+            System.out.println("Error getting local host address: " + e.getMessage());
         }
     }
 }
