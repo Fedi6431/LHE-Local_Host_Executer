@@ -1,7 +1,5 @@
 //This software is protected by Fedi6431© copyrights
 
-//This software is protected by Fedi6431© copyrights
-
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.*;
 import java.net.*;
