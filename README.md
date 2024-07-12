@@ -37,6 +37,9 @@ As soon as you launch the client GUI, a server login panel will open with a text
 
 After typing the IPv4 of the server, the server control panel will open, in this panel there are 2 buttons and a text field. The text field is used to write payloads and the button next to the text field is used to send them to the server, however, the other button is used to close the session.
 
+![image](https://github.com/user-attachments/assets/542f582b-1e3d-4854-8b71-79dd4cfbcb18)
+
+
 #### Examples of payloads
 Windows payload :
 
