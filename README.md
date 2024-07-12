@@ -45,6 +45,7 @@ Windows payload :
 server.java : `src/server.java`
 
 client.java : `src/client.java`
+clientGUI.java : `src/clientGUI.java`
 #### CLASS Files
 server.class : `out/production/LHE-Local_Host_Executer/Server.class`
 
