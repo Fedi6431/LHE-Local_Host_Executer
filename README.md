@@ -32,7 +32,8 @@ And finally, after configuring the client, you can execute the payloads remotely
 The client GUI is build in java with swing and socket connection.
 
 As soon as you launch the client GUI, a server login panel will open with a text field where you need to enter the IPv4 of the server. 
-![image](https://github.com/user-attachments/assets/fc3363fb-885b-4511-963e-f37bd5bffe2a)
+![image](https://github.com/user-attachments/assets/6161b338-52c6-44f4-b251-69cb4dfa8603)
+
 
 After typing the IPv4 of the server, the server control panel will open, in this panel there are 2 buttons and a text field. The text field is used to write payloads and the button next to the text field is used to send them to the server, however, the other button is used to close the session.
 
