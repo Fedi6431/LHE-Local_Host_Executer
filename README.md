@@ -17,7 +17,7 @@ After running it you can select the "system" that you're using.
 
 ## User guide
 ### Server
-The server is built in java with a socket connection, it will use port 65000 and its own IPv4 as its IP address (Ex. 192.168.1.255).
+The server is built in java with a socket connection, it will use port 65000 and its own IPv4 as its IP address (Ex. 192.168.1.255). To execute the server in backgroud use `javaw *name*`
 
 ### Client
 The client is built in java with a socket connection like the server.
