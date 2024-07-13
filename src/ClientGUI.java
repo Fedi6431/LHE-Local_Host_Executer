@@ -8,7 +8,7 @@ import java.io.*;
 public class ClientGUI extends JFrame {
 
     public static void Login() {
-        // Login frame settings
+        // frame
         JFrame frame = new JFrame("Server login panel");
         frame.setSize(350, 150);
         frame.setResizable(false);
@@ -16,7 +16,7 @@ public class ClientGUI extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        // Objects initialization
+        // objects initialization
         JTextArea textArea = new JTextArea();
         JButton button = new JButton("submit");
         JTextField textField = new JTextField("Type server IPv4");
@@ -37,9 +37,7 @@ public class ClientGUI extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                System.out.println("Connecting to server");
-                frame.setVisible(false); // Hiding the login frame
+                frame.setVisible(false);
                 String address = textField.getText();
                 int port = 65000;
                 try {
@@ -47,40 +45,31 @@ public class ClientGUI extends JFrame {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-
             }
         });
     }
 
     public static void ServerControlPanel(String address, int port) throws IOException {
-        // FRAME
+        // frame
         JFrame serverFrame = new JFrame("Server control panel - LHE-Local_Host_Executer");
-        // frame configuration
         serverFrame.setSize(800, 500);
         serverFrame.setResizable(false);
         serverFrame.setLocationRelativeTo(null);
         serverFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-        // OBJECTS
-        // text area
+        // objects initialization
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
-        // text field
-        JTextField textField = new JTextField("");  // First component as text field
-        // buttons
+        JTextField textField = new JTextField("");
         JButton EndSessionButton = new JButton("End session");
         JButton submitbutton = new JButton("submit");
 
-
-        // PANEL
+        // panel
         JPanel serverPanel = new JPanel();
-        // panel layout configuration
         serverPanel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-
 
         /*
         c.fill      set if the grid is vertical or horizontal
@@ -95,7 +84,8 @@ public class ClientGUI extends JFrame {
         c.anchor    set the location
         c.insets    padding
         */
-        // LAYOUT
+
+        // layout
         // text field layout
         c.fill = GridBagConstraints.HORIZONTAL;
         c.ipady = 20;
@@ -111,40 +101,42 @@ public class ClientGUI extends JFrame {
         serverPanel.add(submitbutton, c);
         // text area layout
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.ipady = 300;
+        c.ipady = 250;
         c.weightx = 0.0;
         c.gridwidth = 5;
         c.gridx = 0;
         c.gridy = 2;
         serverPanel.add(textArea, c);
         // Add the EndSessionButton
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.VERTICAL;
         c.ipady = 0;
         c.weighty = 1.0;
         c.anchor = GridBagConstraints.PAGE_END;
         c.insets = new Insets(10, 0, 0, 0);
-        c.gridx = 2;
+        c.gridx = 4;
         c.gridy = 2;
         serverPanel.add(EndSessionButton, c);
         serverFrame.add(serverPanel);
+
+        // set the frame to visible
         serverFrame.setVisible(true);
 
-        String line = textField.getText();
         // establish a connection with the server
         Socket socket = new Socket(address, port);
 
         // get input from the terminal
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader ServerInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        BufferedReader ServerInfo = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader ServerInfoOutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         // send output to the server socket
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-        // string to read input
-        String os = ServerInput.readLine();
-        String info = ServerInfo.readLine();
+        // strings to read inputs
+        String serverOS = ServerInfoOutput.readLine();
+        String os = serverOS;
+        String serverINFO = ServerInfoOutput.readLine();
+        String info = serverINFO;
 
+        // append the information of the server in the text area
         textArea.append(info + "\n\n");
         textArea.append("Server operating system: " + os + "\n");
 
@@ -152,31 +144,41 @@ public class ClientGUI extends JFrame {
         String serverIP = socket.getLocalAddress().getHostAddress();
         String clientIP = Inet4Address.getLocalHost().getHostAddress();
 
-        // ACTION LISTENER FOR BUTTONS
+        final int[] stringUsed = {0};
         submitbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            String line = textField.getText();
-            textArea.append(clientIP + " to " + serverIP + "$-" + line + "\n");
-            line = textField.getText();
-                try {
-                    output.writeUTF(line);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                // when the strings that are used are greater than 15 the client clear the text area
+                if (stringUsed[0] < 15) {
+                    stringUsed[0]++;
+                } else if (stringUsed[0] >= 15) {
+                    textArea.setText("");
+                    textArea.append(info + "\n\n");
+                    textArea.append("Server operating system: " + os + "\n\n");
+                    for (int i=0;i < 15; i++) {
+                        stringUsed[0]--;
+                    }
                 }
-                textField.setText("");
 
-            }
+                // append the commands in the text area
+                String line = textField.getText();
+                textArea.append(clientIP + " to " + serverIP + "$-" + line + "\n");
+                line = textField.getText();
+                    try {
+                        output.writeUTF(line);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
         });
 
         EndSessionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                System.exit(0)
+                ;
             }
         });
-
-
     }
 
     public static void main(String[] args) {
