@@ -124,6 +124,12 @@ public class ClientGUI extends JFrame {
         // establish a connection with the server
         Socket socket = new Socket(address, port);
 
+        // IP of the server and the client
+        String serverIP = socket.getLocalAddress().getHostAddress();
+        String clientIP = Inet4Address.getLocalHost().getHostAddress();
+
+        JOptionPane.showMessageDialog(null, "Connected successfully to the server", "Server login panel", JOptionPane.INFORMATION_MESSAGE);
+
         // get input from the terminal
         BufferedReader ServerInfoOutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -139,10 +145,6 @@ public class ClientGUI extends JFrame {
         // append the information of the server in the text area
         textArea.append(info + "\n\n");
         textArea.append("Server operating system: " + os + "\n");
-
-        // IP of the server and the client
-        String serverIP = socket.getLocalAddress().getHostAddress();
-        String clientIP = Inet4Address.getLocalHost().getHostAddress();
 
         final int[] stringUsed = {0};
         submitbutton.addActionListener(new ActionListener() {
