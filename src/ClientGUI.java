@@ -43,6 +43,8 @@ public class ClientGUI extends JFrame {
                 try {
                     ServerControlPanel(address, port);
                 } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "Unable to connect to server", "Server login panel", JOptionPane.ERROR_MESSAGE);
+                    System.exit(1);
                     throw new RuntimeException(ex);
                 }
             }
@@ -123,12 +125,11 @@ public class ClientGUI extends JFrame {
 
         // establish a connection with the server
         Socket socket = new Socket(address, port);
+        JOptionPane.showMessageDialog(null, "Connected successfully to the server", "Server login panel", JOptionPane.INFORMATION_MESSAGE);
 
         // IP of the server and the client
         String serverIP = socket.getLocalAddress().getHostAddress();
         String clientIP = Inet4Address.getLocalHost().getHostAddress();
-
-        JOptionPane.showMessageDialog(null, "Connected successfully to the server", "Server login panel", JOptionPane.INFORMATION_MESSAGE);
 
         // get input from the terminal
         BufferedReader ServerInfoOutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
