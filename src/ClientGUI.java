@@ -44,8 +44,14 @@ public class ClientGUI extends JFrame {
                     ServerControlPanel(address, port);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Unable to connect to server", "Server login panel", JOptionPane.ERROR_MESSAGE);
-                    System.exit(1);
+                    int exitOption = JOptionPane.showConfirmDialog(null, "Want exit?", "Server login panel", JOptionPane.YES_NO_OPTION);
+                    if (exitOption == JOptionPane.NO_OPTION) {
+                        main();
+                    } else if (exitOption == JOptionPane.YES_OPTION){
+                        System.exit(1);
+                    } else {
                     throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -184,7 +190,7 @@ public class ClientGUI extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         Login();
     }
 }
