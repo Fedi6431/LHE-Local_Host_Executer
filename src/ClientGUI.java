@@ -1,3 +1,5 @@
+//This software is protected by Fedi6431© copyrights
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -40,24 +42,12 @@ public class ClientGUI extends JFrame {
                 frame.setVisible(false);
                 String address = textField.getText();
                 int port = 65000;
-                try {
-                    ServerControlPanel(address, port);
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null, "Unable to connect to server", "Server login panel", JOptionPane.ERROR_MESSAGE);
-                    int exitOption = JOptionPane.showConfirmDialog(null, "Want exit?", "Server login panel", JOptionPane.YES_NO_OPTION);
-                    if (exitOption == JOptionPane.NO_OPTION) {
-                        main();
-                    } else if (exitOption == JOptionPane.YES_OPTION){
-                        System.exit(1);
-                    } else {
-                    throw new RuntimeException(ex);
-                    }
-                }
+                ServerControlPanel(address, port);
             }
         });
     }
 
-    public static void ServerControlPanel(String address, int port) throws IOException {
+    public static void ServerControlPanel(String address, int port) {
         // frame
         JFrame serverFrame = new JFrame("Server control panel - LHE-Local_Host_Executer");
         serverFrame.setSize(800, 500);
@@ -129,68 +119,80 @@ public class ClientGUI extends JFrame {
         // set the frame to visible
         serverFrame.setVisible(true);
 
-        // establish a connection with the server
-        Socket socket = new Socket(address, port);
-        JOptionPane.showMessageDialog(null, "Connected successfully to the server", "Server login panel", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            // establish a connection with the server
+            Socket socket = new Socket(address, port);
+            JOptionPane.showMessageDialog(null, "Connected successfully to the server", "Server login panel", JOptionPane.INFORMATION_MESSAGE);
 
-        // IP of the server and the client
-        String serverIP = socket.getLocalAddress().getHostAddress();
-        String clientIP = Inet4Address.getLocalHost().getHostAddress();
+            // IP of the server and the client
+            String serverIP = socket.getLocalAddress().getHostAddress();
+            String clientIP = Inet4Address.getLocalHost().getHostAddress();
 
-        // get input from the terminal
-        BufferedReader ServerInfoOutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            // get input from the terminal
+            BufferedReader ServerInfoOutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        // send output to the server socket
-        DataOutputStream output = new DataOutputStream(socket.getOutputStream());
+            // send output to the server socket
+            DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-        // strings to read inputs
-        String serverOS = ServerInfoOutput.readLine();
-        String os = serverOS;
-        String serverINFO = ServerInfoOutput.readLine();
-        String info = serverINFO;
+            // strings to read inputs
+            String serverOS = ServerInfoOutput.readLine();
+            String os = serverOS;
+            String serverINFO = ServerInfoOutput.readLine();
+            String info = serverINFO;
 
-        // append the information of the server in the text area
-        textArea.append(info + "\n\n");
-        textArea.append("Server operating system: " + os + "\n");
+            // append the information of the server in the text area
+            textArea.append(info + "\n\n");
+            textArea.append("Server operating system: " + os + "\n");
 
-        final int[] stringUsed = {0};
-        submitbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // when the strings that are used are greater than 15 the client clear the text area
-                if (stringUsed[0] < 15) {
-                    stringUsed[0]++;
-                } else if (stringUsed[0] >= 15) {
-                    textArea.setText("");
-                    textArea.append(info + "\n\n");
-                    textArea.append("Server operating system: " + os + "\n\n");
-                    for (int i=0;i < 15; i++) {
-                        stringUsed[0]--;
+            final int[] stringUsed = {0};
+            submitbutton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // when the strings that are used are greater than 15 the client clear the text area
+                    if (stringUsed[0] < 15) {
+                        stringUsed[0]++;
+                    } else if (stringUsed[0] >= 15) {
+                        textArea.setText("");
+                        textArea.append(info + "\n\n");
+                        textArea.append("Server operating system: " + os + "\n\n");
+                        for (int i = 0; i < 15; i++) {
+                            stringUsed[0]--;
+                        }
                     }
-                }
 
-                // append the commands in the text area
-                String line = textField.getText();
-                textArea.append(clientIP + " to " + serverIP + "$-" + line + "\n");
-                line = textField.getText();
+                    // append the commands in the text area
+                    String line = textField.getText();
+                    textArea.append(clientIP + " to " + serverIP + "$-" + line + "\n");
+                    line = textField.getText();
                     try {
                         output.writeUTF(line);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
-        });
+            });
 
-        EndSessionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0)
-                ;
+            EndSessionButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0)
+                    ;
+                }
+            });
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Unable to connect to server", "Server login panel", JOptionPane.ERROR_MESSAGE);
+            int exitOption = JOptionPane.showConfirmDialog(null, "Want exit?", "Server login panel", JOptionPane.YES_NO_OPTION);
+            if (exitOption == JOptionPane.NO_OPTION) {
+                serverFrame.setVisible(false);
+                Login();
+            } else if (exitOption == JOptionPane.YES_OPTION){
+                System.exit(1);
             }
-        });
+
+        }
     }
 
-    public static void main() {
+    public static void main(String[] args) {
         Login();
     }
 }
