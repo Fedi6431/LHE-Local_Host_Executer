@@ -1,4 +1,3 @@
-# ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
 # LHE-Local_Host_Executer
 
 ## Installer guide
@@ -66,6 +65,3 @@ client.class : `out/production/LHE-Local_Host_Executer\Client.class`
 ### Badge ( just cool )
 [![Java CI with Gradle](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml/badge.svg)](https://github.com/Fedi6431/LHE-Local_Host_Executer/actions/workflows/gradle.yml)
 
-
-## ⚠ EDUCATIONAL PURPOSE ONLY ⚠ 
-### ⚠ I DON'T ASSUME RESPONSIBILITY FOR THE UNLAWFUL USE OF THIS PROGRAM ⚠
